@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
+         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/modal_windows.css') }}">
+    <title>Student Portal</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Портал преподавателей</h1>
+        <h2>Добрый день, {{ surname }} {{ name }} {{ patronymic }}!</h2>
+
+        <div class="chat">
+            <a href="#" class="button">Чат общений<br><img src="{{ url_for('static', filename='images/chat.png') }}" alt="chat image"></a>
+            <a href="#" class="button">Рабочий чат<br><img src="{{ url_for('static', filename='images/chat_working.png') }}" alt="chat_working image"></a>
+            <a href="/schedule?token={{ token }}" class="button">Расписание<br><img src="{{ url_for('static', filename='images/schedule.png') }}" alt="schedule image"></a>
+            <br>
+            <a href="" class="button">Ведомость<br><img src="{{ url_for('static', filename='images/balls.png') }}" alt="balls image"></a>
+        </div>
+        <a href="/logout?token={{ token }}">Выйти</a>
+
+
+        <div class="other">
+            <!-- Здесь можно добавить дополнительные разделы сайта, например, список домашних заданий -->
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

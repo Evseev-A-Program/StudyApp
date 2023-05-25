@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Portal</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/home.css') }}">
+     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/modal_windows.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Портал студентов</h1>
+        <h2>Добрый день, {{ surname }} {{ name }} {{ patronymic }} {{ group }}!</h2>
+
+        <div class="chat">
+            <a href="#" id = "chat-communication" onclick="openChatModal()" class="button">Чат общений<br><img src="{{ url_for('static', filename='images/chat.png') }}" alt="chat image"></a>
+            <a href="#" class="button">Рабочий чат<br><img src="{{ url_for('static', filename='images/chat_working.png') }}" alt="chat_working image"></a>
+            <a href="/schedule?token={{ token }}" class="button">Расписание<br><img src="{{ url_for('static', filename='images/schedule.png') }}" alt="schedule image"></a>
+            <br>
+            <a href="" class="button">Успеваемость<br><img src="{{ url_for('static', filename='images/balls.png') }}" alt="balls image"></a>
+        </div>
+        <a href="/logout?token={{ token }}">Выйти</a>
+
+        <div id="chatModal" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeChatModal()">&times;</span>
+              <!-- Здесь можно разместить переписку и функциональность выбора человека для начала переписки -->
+              <h2>Чат для общения</h2>
+                {% for chat in chats %}
+                    <form action="/chat" method="post">
+                        <input type="hidden" name="token" value="{{ token }}">
+                        <input type="hidden" name="chatId" value="{{ chat[0] }}">
+                        <input type="submit" class="chat_but" value="{{ chat[3] }}">
+                    </form>
+                {% endfor %}
+            </div>
+          </div>
+
+        <div class="other">
+            <!-- Здесь можно добавить дополнительные разделы сайта, например, список домашних заданий -->
+        </div>
+    </div>
+</body>
+<script>
+    function openChatModal() {
+      document.getElementById('chatModal').style.display = 'block';
+    }
+
+    // Закрытие модального окна
+    function closeChatModal() {
+      document.getElementById('chatModal').style.display = 'none';
+    }
+</script>
+</html>
+
+
+
+

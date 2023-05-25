@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+    <title>Список студентов</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #0052cc;
+          background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05)), linear-gradient(135deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05));
+          background-size: 2px 2px, 2px 2px, 50px 50px, 50px 50px;
+          background-position: -2px -2px, -2px -2px, 0 0, 0 0;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin: auto;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+
+      td{
+        font-size: 150%;
+        font-weight: bold;
+
+      }
+
+      th {
+        background-color: #0099cc;
+        color: white;
+      }
+
+      td.present {
+        background-color: #66cc99;
+      }
+
+      td.absent {
+        background-color: #ff6666;
+      }
+
+      /*td.work-submitted {*/
+      /*  background-color: #ffff99;*/
+      /*}*/
+
+      #center{
+          text-align: center;
+      }
+
+      .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: 200px;
+            transition: background-color 0.3s;
+        }
+
+      .button:hover {
+            background-color: #666;
+        }
+    </style>
+  </head>
+  <body>
+      <div id="center">
+        <a href="/schedule?token={{ token }}" class="button">Расписание</a>
+        <h1>Список студентов</h1>
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>14.04.23</th>
+              <th>21.04.23</th>
+              <th>28.04.23</th>
+              <th>05.05.23</th>
+              <th>12.05.23</th>
+              <th>19.05.23</th>
+              <th>Экзамен</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Иванов Иван</td>
+              <td class="present">+</td>
+              <td class="present">+</td>
+              <td class="absent">-</td>
+              <td class="present">+</td>
+              <td class="present">-</td>
+              <td class="present">-</td>
+              <td class="present">5</td>
+            </tr>
+            <tr>
+              <td>Петров Петр</td>
+              <td class="present">+</td>
+              <td class="absent">-</td>
+              <td class="present">+</td>
+              <td class="present">+</td>
+              <td class="present">-</td>
+              <td class="present">-</td>
+              <td class="present">4</td>
+            </tr>
+            <tr>
+              <td>Сидорова Анна</td>
+              <td class="absent">+</td>
+              <td class="absent">-</td>
+              <td class="absent">+</td>
+              <td class="present">+</td>
+              <td class="absent">+</td>
+              <td class="absent">+</td>
+              <td class="present">4</td>
+            </tr>
+            <!-- и так далее -->
+          </tbody>
+        </table>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Расписание занятий</title>
+    <meta charset="UTF-8">
+  <title>Чат</title>
+  <style>
+    /* Стили для модального окна */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fefefe;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Стили для кнопки чата */
+    .chat-button {
+      background-color: #1E90FF;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    // Открытие модального окна
+    function openChatModal() {
+      document.getElementById('chatModal').style.display = 'block';
+    }
+
+    // Закрытие модального окна
+    function closeChatModal() {
+      document.getElementById('chatModal').style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+  <!-- Кнопка чата -->
+  <button class="chat-button" onclick="openChatModal()">Чат</button>
+
+  <!-- Модальное окно чата -->
+  <div id="chatModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeChatModal()">&times;</span>
+      <!-- Здесь можно разместить переписку и функциональность выбора человека для начала переписки -->
+      <h2>Модальное окно чата</h2>
+      <!-- Размещение переписки и функциональности -->
+    </div>
+  </div>
+</body>
+</html>

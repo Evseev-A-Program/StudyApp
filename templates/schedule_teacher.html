@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Расписание занятий</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+		body{
+          background-color: #F4F7FA;
+          background-image: linear-gradient(to top, #ffffff, #4c74af);
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+		}
+        /* стили для таблицы */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            /*max-width: 800px;*/
+            margin: 0 auto;
+        }
+
+        td, th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+			background-color: #ffffff;
+        }
+
+        td {
+            width: 250px;
+            height: 100px;
+        }
+
+        th {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        /* стили для времени */
+        .time {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* стили для пустой ячейки */
+        .empty {
+            background-color: #eee;
+        }
+
+        .schedule {
+            text-align: center;
+        }
+
+              .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: 200px;
+            transition: background-color 0.3s;
+        }
+
+      .button:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+<div class="schedule">
+    <a href="/home?token={{ token }}" class="button">На главную</a>
+    <h1>Расписание занятий</h1>
+    <table>
+        <tr>
+            <th></th>
+            <th>Пн</th>
+            <th>Вт</th>
+            <th>Ср</th>
+            <th>Чт</th>
+            <th>Пт</th>
+            <th>Сб</th>
+        </tr>
+        <tr>
+            <td>8:00 - 9:30</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>9:45 - 11:15</td>
+            <td>2/405 <br>Общая теория связи<br>(лаб)<br>ИКТС-21</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+			<td></td>
+        </tr>
+        <tr>
+            <td>11:30 - 13:00</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+			<td></td>
+        </tr>
+        <tr>
+            <td>13:40 - 15:10</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+			<td></td>
+        </tr>
+        <tr>
+            <td>15:20 - 16:50</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+			<td></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

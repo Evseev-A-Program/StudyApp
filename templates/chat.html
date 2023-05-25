@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/chat.css') }}">
+  <title>Чат</title>
+</head>
+<body>
+  <div style="text-align: center">
+    <a href="/home?token={{ token }}" class="button">На главную</a>
+  </div>
+  <div class="chat-container" id="chat-container">
+    {% for message in messages %}
+      <div class="message">
+            <span class="sender"> {{ message[3] }} </span>
+            <span class="time"> {{ message[4] }} </span>
+            <p> {{ message[2] }}</p>
+      </div>
+    {% endfor %}
+
+  </div>
+
+  <div id="message-form-container">
+    <form class="message-form" id="message-form" method="post">
+        <input type="hidden" id="token" name="token" value="{{ token }}">
+        <input type="hidden" id="chatId" name="chatId" value="{{ chatId }}">
+        <input type="text"  id="message" name="message" placeholder="Введите сообщение...">
+        <input type="submit" value="Отправить">
+    </form>
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+          crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    $(document).on('submit','#message-form',function(e) {
+      e.preventDefault();
+      var message = $('#message').val(); // Получение значения поля ввода сообщения
+      var token = $('#token').val();
+      var chatId = $('#chatId').val();
+      $.ajax({
+        type:'POST',
+        url:'/send',
+        data:{message: message, chatId: chatId, token: token},
+        success:function(response)
+        {
+          console.log('сообщение отправлено: ' + message)
+            var messages = response.messages;
+
+            $('#chat-container').empty();
+
+            // Добавляем новые сообщения в блок message-block
+            for (var i = 0; i < messages.length; i++) {
+                var message = messages[i];
+                var html = '<div class="message">' +
+                               '<span class="sender">' + message[3] + '</span>' +
+                               '<span class="time">' + message[4] + '</span>' +
+                               '<p>' + message[2] + '</p>' +
+                           '</div>';
+                $('#chat-container').append(html);
+            }
+        }
+      })
+        $('#message').val('').focus();
+    });
+
+
+    //
+    // function getMessages() {
+    //     $.ajax({
+    //         url: '/get_messages',
+    //         type: 'GET',
+    //         data:{chatId: chatId, token: token},
+    //         success: function(response) {
+    //             var messages = response.messages;
+    //
+    //             $('#chat-container').empty();
+    //
+    //         for (var i = 0; i < messages.length; i++) {
+    //             var message = messages[i];
+    //             var html = '<div class="message">' +
+    //                            '<span class="sender">' + message[3] + '</span>' +
+    //                            '<span class="time">' + message[4] + '</span>' +
+    //                            '<p>' + message[2] + '</p>' +
+    //                        '</div>';
+    //             $('#chat-container').append(html);
+    //         }
+    //         }
+    //     });
+    // }
+    //
+    // setInterval(getMessages, 500);
+  </script>
+</body>
+</html>
+
+
+
